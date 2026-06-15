@@ -1,0 +1,45 @@
+import Item.Espada;
+import Item.PocaoCura;
+import Jogador.Guerreiro;
+import Monstro.Goblin;
+import Monstro.Orc;
+
+void main() {
+    Goblin goblin1 = new Goblin();
+    Goblin goblin2 = new Goblin();
+    Goblin goblin3 = new Goblin();
+    Orc orc1 = new Orc();
+    Orc orc2 = new Orc();
+    Guerreiro jogador1 = new Guerreiro("jogador1");
+    System.out.println(jogador1.checkNome()+" de nível: "+jogador1.checkNivel()+" tem: "+jogador1.checkXp()+" de XP, "+jogador1.checkHp()+" de HP e "+jogador1.checkHpMax()+" de HP máximo");
+    jogador1.atacar(goblin1);
+    goblin1.atacar(jogador1);
+    jogador1.atacar(goblin1);
+    System.out.println(jogador1.checkNome()+" de nível: "+jogador1.checkNivel()+" tem: "+jogador1.checkXp()+" de XP, "+jogador1.checkHp()+" de HP e "+jogador1.checkHpMax()+" de HP máximo");
+    jogador1.atacar(goblin2);
+    goblin2.atacar(jogador1);
+    jogador1.atacar(goblin2);
+    System.out.println(jogador1.checkNome()+" de nível: "+jogador1.checkNivel()+" tem: "+jogador1.checkXp()+" de XP, "+jogador1.checkHp()+" de HP e "+jogador1.checkHpMax()+" de HP máximo");
+    jogador1.atacar(orc1);
+    jogador1.atacar(orc1);
+    orc1.atacar(jogador1);
+    jogador1.atacar(orc1);
+    System.out.println(jogador1.checkNome()+" de nível: "+jogador1.checkNivel()+" tem: "+jogador1.checkXp()+" de XP, "+jogador1.checkHp()+" de HP e "+jogador1.checkHpMax()+" de HP máximo");
+    jogador1.atacar(goblin3);
+    goblin3.atacar(jogador1);
+    jogador1.atacar(goblin3);
+    System.out.println(jogador1.checkNome()+" de nível: "+jogador1.checkNivel()+" tem: "+jogador1.checkXp()+" de XP, "+jogador1.checkHp()+" de HP e "+jogador1.checkHpMax()+" de HP máximo");
+    Espada espada1 = new Espada();
+    PocaoCura pocao1 = new PocaoCura();
+    jogador1.coletarItemBolsa(espada1);
+    jogador1.coletarItemBolsa(pocao1);
+    System.out.println(jogador1.checkNome()+" achou um baú e conseguiu uma espada e uma poção de cura");
+    jogador1.equiparItemBolsa(espada1);
+    pocao1.consumir(jogador1);
+    System.out.println(jogador1.checkNome()+" equipa sua espada e usa sua poçao de cura, e agora está com "+jogador1.checkHp()+" de HP e ganhou "+espada1.getDano()+" de dano");
+    jogador1.atacar(orc2);
+    jogador1.atacar(orc2);
+    orc2.atacar(jogador1);
+    jogador1.atacar(orc2);
+    System.out.println(jogador1.checkNome()+" de nível: "+jogador1.checkNivel()+" tem: "+jogador1.checkXp()+" de XP, "+jogador1.checkHp()+" de HP e "+jogador1.checkHpMax()+" de HP máximo");
+}
