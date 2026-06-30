@@ -1,3 +1,4 @@
+import Item.Bau;
 import Item.Espada;
 import Item.PocaoCura;
 import Jogador.Guerreiro;
@@ -11,6 +12,7 @@ void main() {
     Orc orc1 = new Orc();
     Orc orc2 = new Orc();
     Guerreiro jogador1 = new Guerreiro("jogador1");
+    System.out.println("Total de Jogadores: "+Jogador.Jogador.getTotalJogadores());
     System.out.println(jogador1.checkNome()+" de nível: "+jogador1.checkNivel()+" tem: "+jogador1.checkXp()+" de XP, "+jogador1.checkHp()+" de HP e "+jogador1.checkHpMax()+" de HP máximo");
     jogador1.atacar(goblin1);
     goblin1.atacar(jogador1);
@@ -31,8 +33,11 @@ void main() {
     System.out.println(jogador1.checkNome()+" de nível: "+jogador1.checkNivel()+" tem: "+jogador1.checkXp()+" de XP, "+jogador1.checkHp()+" de HP e "+jogador1.checkHpMax()+" de HP máximo");
     Espada espada1 = new Espada();
     PocaoCura pocao1 = new PocaoCura();
-    jogador1.coletarItemBolsa(espada1);
-    jogador1.coletarItemBolsa(pocao1);
+    Bau bau1 = new Bau("bau1");
+    bau1.addItemBau(espada1);
+    bau1.addItemBau(pocao1);
+    bau1.collectItemBau(jogador1, espada1);
+    bau1.collectItemBau(jogador1, pocao1);
     System.out.println(jogador1.checkNome()+" achou um baú e conseguiu uma espada e uma poção de cura");
     jogador1.equiparItemBolsa(espada1);
     pocao1.consumir(jogador1);
@@ -42,4 +47,7 @@ void main() {
     orc2.atacar(jogador1);
     jogador1.atacar(orc2);
     System.out.println(jogador1.checkNome()+" de nível: "+jogador1.checkNivel()+" tem: "+jogador1.checkXp()+" de XP, "+jogador1.checkHp()+" de HP e "+jogador1.checkHpMax()+" de HP máximo");
+    Guerreiro jogador2 = new Guerreiro("jogador2");
+    jogador1.addAmigo(jogador2);
+    System.out.println(jogador1.checkNome()+" de nível: "+jogador1.checkNivel()+" é amigo de: "+jogador1.getListaDeAmigos());
 }

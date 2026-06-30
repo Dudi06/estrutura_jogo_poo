@@ -13,7 +13,31 @@ public abstract class Jogador implements Nivel {
     Integer xp = 0;
     Integer dano;
     ArrayList<Item> itensBolsa = new ArrayList<Item>();
+    ArrayList<Jogador> listaDeAmigos = new ArrayList<Jogador>();
     ArrayList<Item> itensEquipados = new ArrayList<Item>();
+    protected static int totalJogadores = 0;
+
+    public static int getTotalJogadores() {
+        return totalJogadores;
+    }
+
+    public void addAmigo(Jogador amigo){
+        this.listaDeAmigos.add(amigo);
+        amigo.listaDeAmigos.add(this);
+    }
+
+    public void removeAmigo(Jogador amigo){
+        this.listaDeAmigos.remove(amigo);
+        amigo.listaDeAmigos.remove(this);
+    }
+
+    public ArrayList<String> getListaDeAmigos(){
+        ArrayList<String> nomeAmigos = new ArrayList<String>();
+        for(Jogador amigo : this.listaDeAmigos){
+            nomeAmigos.add(amigo.checkNome());
+        }
+        return nomeAmigos;
+    }
 
     public void subirNivel() {}
 

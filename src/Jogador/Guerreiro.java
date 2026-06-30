@@ -9,6 +9,7 @@ public class Guerreiro extends Jogador {
         this.hpMax = 20;
         this.hp = hpMax;
         this.dano = 6;
+        totalJogadores++;
     }
 
     public void atacar(Monstro m) {
